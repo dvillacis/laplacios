@@ -3,11 +3,11 @@ require_once('conn.php');
 
 date_default_timezone_set('America/Guayaquil');
 $current_date = date('Y-m-d');
-$current_time = date('h:i:s');
+$current_time = date('H:i:s');
 
 // Getting current games
-$games_query=mysql_query("SELECT DISTINCT id_partido,equipo_1,equipo_2,fecha,hora FROM partidos WHERE fecha >= '$current_date' and hora >= '$current_time'",$connection);
-//$games_query=mysql_query("SELECT DISTINCT id_partido,equipo_1,equipo_2,fecha,hora FROM partidos",$connection);
+//$games_query=mysql_query("SELECT DISTINCT id_partido,equipo_1,equipo_2,fecha,hora FROM partidos WHERE fecha >= '$current_date' and hora >= '$current_time'",$connection);
+$games_query=mysql_query("SELECT DISTINCT id_partido,equipo_1,equipo_2,fecha,hora FROM partidos WHERE fecha >= '$current_date'",$connection);
 
 // Getting bets
 $bets_query=mysql_query("select * from apuestas where id_participante='$login_id'");
