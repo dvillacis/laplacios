@@ -1,0 +1,114 @@
+<?php
+include('session.php');
+?>
+<!DOCTYPE html>
+<html>
+<meta charset="ISO-8859-1">
+<head>
+<title>BANCO CENTRAL DEL LAPLACIO</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="profile">
+<b id="welcome">Hola : <i><?php echo $login_session;?></i></b><br/>
+<b>Tienes : <i><?php echo $login_saldo.' laplacios'; ?></i></b><br/>
+<b><i><?php echo $current_date.' '.$current_time; ?></i>
+<b id="logout"><a href="logout.php">Log Out</a></b>
+</div>
+<div>
+  <h2>Enviar Apuesta</h2>
+  <form id="form" name="form" method="post" action="">
+  <table>
+    <tr>
+      <td>Partido</td>
+      <td>
+        <select name="id_partido">
+          <?php
+          while($game = mysql_fetch_array($games_query)) {
+            $partido_name = $game[1] . " - " . $game[2] . " - " . $game[3] . " " . $game[4];
+            echo '<option value="'.$game[0].'">'.$partido_name.'</option>';
+          }
+          echo "</select>";
+          ?>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Equipo 1</td>
+      <td><input id="number" type="number" name="apuesta_equipo_1" /></td>
+    </tr>
+    <tr>
+      <td>Equipo 2</td>
+      <td><input id="number" type="number" name="apuesta_equipo_2" /></td>
+    </tr>
+    <tr>
+      <td>Apuesta</td>
+      <td><input id="number" type="number" name="apuesta_valor" /> laplacios</td>
+    </tr>
+    <tr>
+      <td><input type="submit" name="submit" id="submit" value="Apostar" /></td>
+    </tr>
+  </table>
+  <span><?php echo $bet_error; ?></span>
+  </form>
+</div>
+<div class="">
+  <h2>Mis Apuestas</h2>
+  <table>
+    <tr>
+      <th>FECHA</th>
+      <th>HORA</th>
+      <th>PARTIDO</th>
+      <th>PRONOSTICO</th>
+      <th>RESULTADO</th>
+      <th>APUESTA</th>
+      <th>PROCESADA</th>
+    </tr>
+    <?php
+      while($bet = mysql_fetch_array($bets_query)){
+        $g_query = mysql_query("select * from partidos where id_partido='$bet[2]'");
+        $g_row = mysql_fetch_array($g_query);
+        $match = $g_row[1].'-'.$g_row[2].' '.$g_row[3].' '.$g_row[4];
+        $pron = $bet[3].'-'.$bet[4];
+        $resultado = $g_row[5].'-'.$g_row[6];
+        echo '<tr><td>'.$bet[6].'</td>'.'<td>'.$bet[7].'</td>'.'<td>'.$match.'</td>'.'<td>'.$pron.'</td><td>'.$resultado.'</td><td>'.$bet[5].'</td><td>'.$bet[8].'</td></tr>';
+      }
+    ?>
+  </table>
+</div>
+<div class="">
+  <h2>Tabla de Clasificación</h2>
+  <ol type="1">
+    <?php
+    while ($participant = mysql_fetch_array($leader_query)){
+      echo '<li>'.$participant[0].'-'.$participant[1].'</li>';
+    }
+    ?>
+  </ol>
+</div>
+<!-- <div class="">
+  <h2>Procesar Laplacios (ADMIN)</h2>
+  <form id="form" name="form" method="post" action="">
+    <table>
+      <tr>
+        <td>Partido</td>
+        <td>
+          <select name="id_partido_processing">
+            <?php
+            while($proc = mysql_fetch_array($processing_query)) {
+              $proc_name = $proc[1] . " - " . $proc[2] . " - " . $proc[3] . " " . $proc[4];
+              echo '<option value="'.$proc[0].'">'.$proc_name.'</option>';
+            }
+            echo "</select>";
+            ?>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><input type="submit" name="submit2" id="submit" value="Calcular" /></td>
+      </tr>
+    </table>
+    <span><?php echo $processing_error; ?></span>
+  </form>
+</div> -->
+</body>
