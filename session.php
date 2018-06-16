@@ -26,7 +26,7 @@ $apuesta_equipo_1= $_POST['apuesta_equipo_1'];
 $apuesta_equipo_2= $_POST['apuesta_equipo_2'];
 $apuesta_valor= $_POST['apuesta_valor'];
 $date = date('Y-m-d');
-$time = date('h:i:s');
+$time = date('H:i:s');
 
 // Check if not already placed the bet
 $valid_query = mysql_query("SELECT * FROM apuestas WHERE id_participante='$login_id' and id_partido='$id_partido'");
