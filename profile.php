@@ -15,7 +15,7 @@ include('session.php');
 <b><i><?php echo $current_date.' '.$current_time; ?></i>
 <b id="logout"><a href="logout.php">Log Out</a></b>
 </div>
-<div id=login>
+<div>
   <h2>Enviar Apuesta</h2>
   <form id="form" name="form" method="post" action="">
   <table>
