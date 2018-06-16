@@ -85,14 +85,16 @@ include('session.php');
   <table class="table1">
     <thead>
       <tr>
+        <th>POS</th>
         <th>PARTICIPANTE</th>
         <th>LAPLACIOS</th>
       </tr>
     </thead>
     <tbody>
       <?php
+      $indice=1;
       while ($participant = mysql_fetch_array($leader_query)){
-        echo '<tr><td>'.$participant[0].'</td><td>'.$participant[1].'</td></tr>';
+        echo '<tr><td>'.$indice.'</td><td>'.$participant[0].'</td><td>'.$participant[1].'</td></tr>';
       }
       ?>
     </tbody>
