@@ -55,15 +55,17 @@ include('session.php');
 <div class="">
   <h2>Mis Apuestas</h2>
   <table class="table1">
-    <tr>
-      <th>FECHA</th>
-      <th>HORA</th>
-      <th>PARTIDO</th>
-      <th>PRONOSTICO</th>
-      <th>RESULTADO</th>
-      <th>APUESTA</th>
-      <th>PROCESADA</th>
-    </tr>
+    <thead>
+      <tr>
+        <th>FECHA</th>
+        <th>HORA</th>
+        <th>PARTIDO</th>
+        <th>PRONOSTICO</th>
+        <th>RESULTADO</th>
+        <th>APUESTA</th>
+        <th>PROCESADA</th>
+      </tr>
+    </thead>
     <tbody>
     <?php
       while($bet = mysql_fetch_array($bets_query)){
@@ -80,13 +82,21 @@ include('session.php');
 </div>
 <div class="">
   <h2>Tabla de Clasificación</h2>
-  <ol type="1">
-    <?php
-    while ($participant = mysql_fetch_array($leader_query)){
-      echo '<li>'.$participant[0].'-'.$participant[1].'</li>';
-    }
-    ?>
-  </ol>
+  <table class="table1">
+    <thead>
+      <tr>
+        <th>PARTICIPANTE</th>
+        <th>LAPLACIOS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+      while ($participant = mysql_fetch_array($leader_query)){
+        echo '<tr><td>'.$participant[0].'</td><td>'.$participant[1].'</td></tr>';
+      }
+      ?>
+    </tbody>
+  </table>
 </div>
 <!-- <div class="">
   <h2>Procesar Laplacios (ADMIN)</h2>
