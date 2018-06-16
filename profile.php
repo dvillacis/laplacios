@@ -95,6 +95,7 @@ include('session.php');
       $indice=1;
       while ($participant = mysql_fetch_array($leader_query)){
         echo '<tr><td>'.$indice.'</td><td>'.$participant[0].'</td><td>'.$participant[1].'</td></tr>';
+        $indice = $indice+1;
       }
       ?>
     </tbody>
