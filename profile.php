@@ -54,7 +54,7 @@ include('session.php');
 </div>
 <div class="">
   <h2>Mis Apuestas</h2>
-  <table>
+  <table class="table1">
     <tr>
       <th>FECHA</th>
       <th>HORA</th>
@@ -64,6 +64,7 @@ include('session.php');
       <th>APUESTA</th>
       <th>PROCESADA</th>
     </tr>
+    <tbody>
     <?php
       while($bet = mysql_fetch_array($bets_query)){
         $g_query = mysql_query("select * from partidos where id_partido='$bet[2]'");
@@ -74,6 +75,7 @@ include('session.php');
         echo '<tr><td>'.$bet[6].'</td>'.'<td>'.$bet[7].'</td>'.'<td>'.$match.'</td>'.'<td>'.$pron.'</td><td>'.$resultado.'</td><td>'.$bet[5].'</td><td>'.$bet[8].'</td></tr>';
       }
     ?>
+    </tbody>
   </table>
 </div>
 <div class="">
