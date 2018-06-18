@@ -31,7 +31,7 @@ if (isset($_POST['submit2'])){
       $saldo_total_laplacios = $total_banco_prev_row[0] + $saldo_incr;
       mysql_query("INSERT INTO transacciones (id_participante, id_apuesta, monto, total_participante, fecha, hora) VALUES ('$ap[1]','$ap[0]','$saldo_incr','$saldo_new','$current_date','$current_time')");
       mysql_query("UPDATE banco_central_laplacio SET total_laplacios='$saldo_total_laplacios'");
-      $cotizacion_new = $saldo_total_laplacios/$total_banco_prev_row[1];
+      $cotizacion_new = ($saldo_total_laplacios-$total_banco_prev_row[2])/$total_banco_prev_row[1];
       mysql_query("UPDATE banco_central_laplacio SET cotizacion='$cotizacion_new'");
     } else {
       // Verifico si acerto la diferencia
@@ -44,7 +44,7 @@ if (isset($_POST['submit2'])){
         $saldo_total_laplacios = $total_banco_prev_row[0] + $saldo_incr;
         mysql_query("INSERT INTO transacciones (id_participante, id_apuesta, monto, total_participante, fecha, hora) VALUES ('$ap[1]','$ap[0]','$saldo_incr','$saldo_new','$current_date','$current_time')");
         mysql_query("UPDATE banco_central_laplacio SET total_laplacios='$saldo_total_laplacios'");
-        $cotizacion_new = $saldo_total_laplacios/$total_banco_prev_row[1];
+        $cotizacion_new = ($saldo_total_laplacios-$total_banco_prev_row[2])/$total_banco_prev_row[1];
         mysql_query("UPDATE banco_central_laplacio SET cotizacion='$cotizacion_new'");
       } else {
         // Verifico si solo acerto al ganador
@@ -57,7 +57,7 @@ if (isset($_POST['submit2'])){
           $saldo_total_laplacios = $total_banco_prev_row[0] + $saldo_incr;
           mysql_query("INSERT INTO transacciones (id_participante, id_apuesta, monto, total_participante, fecha, hora) VALUES ('$ap[1]','$ap[0]','$saldo_incr','$saldo_new','$current_date','$current_time')");
           mysql_query("UPDATE banco_central_laplacio SET total_laplacios='$saldo_total_laplacios'");
-          $cotizacion_new = $saldo_total_laplacios/$total_banco_prev_row[1];
+          $cotizacion_new = ($saldo_total_laplacios-$total_banco_prev_row[2])/$total_banco_prev_row[1];
           mysql_query("UPDATE banco_central_laplacio SET cotizacion='$cotizacion_new'");
         } else {
           // NO acerto
