@@ -18,6 +18,11 @@ $leader_query= mysql_query("select nombre,saldo from participantes order by sald
 // Processing game
 $processing_query=mysql_query("SELECT DISTINCT id_partido,equipo_1,equipo_2,fecha,hora FROM partidos WHERE revisado= 0",$connection);
 
+// Query cotizacion
+// Obtengo el saldo del banco
+$total_banco_prev_query = mysql_query("SELECT * FROM banco_central_laplacio WHERE 1");
+$total_banco_prev_row = mysql_fetch_array($total_banco_prev_query);
+
 
 // Saving Bet
 $bet_error = "";

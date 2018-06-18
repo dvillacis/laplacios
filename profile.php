@@ -13,6 +13,7 @@ include('session.php');
 <b id="welcome">Hola : <i><?php echo $login_session;?></i></b><br/>
 <b>Tienes : <i><?php echo $login_saldo.' laplacios'; ?></i></b><br/>
 <b><i><?php echo $current_date.' '.$current_time; ?></i>
+<b>Cotizacion 1USD : <i><?php echo $total_banco_prev_row[4];?></i></b><br/>
 <b id="logout"><a href="logout.php">Log Out</a></b>
 </div>
 <div>

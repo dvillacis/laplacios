@@ -59,6 +59,11 @@ if (isset($_POST['submit2'])){
           mysql_query("UPDATE banco_central_laplacio SET total_laplacios='$saldo_total_laplacios'");
           $cotizacion_new = $saldo_total_laplacios/$total_banco_prev_row[1];
           mysql_query("UPDATE banco_central_laplacio SET cotizacion='$cotizacion_new'");
+        } else {
+          // NO acerto
+          $reserva_banco_total = $total_banco_prev_row[2] + $ap[5];
+          mysql_query("UPDATE banco_central_laplacio SET reserva='$reserva_banco_total'");
+          $cotizacion_new = ($total_banco_prev_row[0]-$reserva_banco_total)/$total_banco_prev_row[1];
         }
       }
     }
