@@ -36,15 +36,15 @@ include('session.php');
     </tr>
     <tr>
       <td>Equipo 1</td>
-      <td><input id="number" type="number" name="apuesta_equipo_1" /></td>
+      <td><input id="number" min="0" step="1" type="number" name="apuesta_equipo_1" /></td>
     </tr>
     <tr>
       <td>Equipo 2</td>
-      <td><input id="number" type="number" name="apuesta_equipo_2" /></td>
+      <td><input id="number" min="0" step="1" type="number" name="apuesta_equipo_2" /></td>
     </tr>
     <tr>
       <td>Apuesta</td>
-      <td><input id="number" type="number" name="apuesta_valor" /> laplacios</td>
+      <td><input id="number" min="0" step="1" type="number" name="apuesta_valor" /> laplacios</td>
     </tr>
     <tr>
       <td><input type="submit" name="submit" id="submit" value="Apostar" /></td>
