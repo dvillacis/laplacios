@@ -43,6 +43,10 @@ if (isset($_POST['submit'])){
   $partido_query_row = mysql_fetch_array($partido_query_processing);
   $fecha_partido = $partido_query_row[3];
   $hora_partido = $partido_query_row[4];
+  // Obtengo el saldo del banco
+  $total_banco_prev_query = mysql_query("SELECT * FROM banco_central_laplacio WHERE 1");
+  $total_banco_prev_row = mysql_fetch_array($total_banco_prev_query);
+
   if (empty($id_partido) || $apuesta_equipo_1<0 || $apuesta_equipo_2<0 || empty($apuesta_valor)){
     $bet_error = "Algunos campos estan vacios";
   } else {
@@ -53,6 +57,8 @@ if (isset($_POST['submit'])){
         mysql_query("INSERT INTO apuestas (id_participante, id_partido, apuesta_equipo_1, apuesta_equipo_2, apuesta_valor, apuesta_fecha, apuesta_hora,procesada) VALUES ('$login_id', '$id_partido','$apuesta_equipo_1','$apuesta_equipo_2','$apuesta_valor','$date','$time',0)");
         $res = $login_saldo-$apuesta_valor;
         mysql_query("UPDATE participantes SET saldo='$res' WHERE id_participante='$login_id'");
+        $banco_saldo = $total_banco_prev_row[0]-$apuesta_valor;
+        mysql_query("UPDATE banco_central_laplacio SET total_laplacios='$banco_saldo'");
         // SQL Query To Fetch Complete Information Of User
         $ses_sql=mysql_query("select id_participante,nombre,saldo from participantes where nombre='$user_check'", $connection);
         $row = mysql_fetch_assoc($ses_sql);
