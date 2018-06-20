@@ -28,7 +28,7 @@ if (isset($_POST['submit2'])){
       $saldo_new = $participante_query_processing_row[2]+$ap[5]*5;
       mysql_query("UPDATE participantes SET saldo='$saldo_new' WHERE id_participante='$ap[1]'");
       $saldo_incr = $ap[5]*4;
-      $saldo_total_laplacios = $total_banco_prev_row[0] + $saldo_incr;
+      $saldo_total_laplacios = $total_banco_prev_row[0] + $ap[5]*5;
       mysql_query("INSERT INTO transacciones (id_participante, id_apuesta, monto, total_participante, fecha, hora) VALUES ('$ap[1]','$ap[0]','$saldo_incr','$saldo_new','$current_date','$current_time')");
       mysql_query("UPDATE banco_central_laplacio SET total_laplacios='$saldo_total_laplacios'");
       $cotizacion_new = $saldo_total_laplacios/$total_banco_prev_row[1];
@@ -41,7 +41,7 @@ if (isset($_POST['submit2'])){
         $saldo_new = $participante_query_processing_row[2]+$ap[5]*3;
         mysql_query("UPDATE participantes SET saldo='$saldo_new' WHERE id_participante='$ap[1]'");
         $saldo_incr = $ap[5]*2;
-        $saldo_total_laplacios = $total_banco_prev_row[0] + $saldo_incr;
+        $saldo_total_laplacios = $total_banco_prev_row[0] + $ap[5]*3;
         mysql_query("INSERT INTO transacciones (id_participante, id_apuesta, monto, total_participante, fecha, hora) VALUES ('$ap[1]','$ap[0]','$saldo_incr','$saldo_new','$current_date','$current_time')");
         mysql_query("UPDATE banco_central_laplacio SET total_laplacios='$saldo_total_laplacios'");
         $cotizacion_new = $saldo_total_laplacios/$total_banco_prev_row[1];
@@ -54,7 +54,7 @@ if (isset($_POST['submit2'])){
           $saldo_new = $participante_query_processing_row[2]+$ap[5]*2;
           mysql_query("UPDATE participantes SET saldo='$saldo_new' WHERE id_participante='$ap[1]'");
           $saldo_incr = $ap[5];
-          $saldo_total_laplacios = $total_banco_prev_row[0] + $saldo_incr;
+          $saldo_total_laplacios = $total_banco_prev_row[0] + $ap[5]*2;
           mysql_query("INSERT INTO transacciones (id_participante, id_apuesta, monto, total_participante, fecha, hora) VALUES ('$ap[1]','$ap[0]','$saldo_incr','$saldo_new','$current_date','$current_time')");
           mysql_query("UPDATE banco_central_laplacio SET total_laplacios='$saldo_total_laplacios'");
           $cotizacion_new = $saldo_total_laplacios/$total_banco_prev_row[1];
