@@ -52,7 +52,6 @@ if (isset($_POST['submit'])){
   $hora_OK = 0;
   if ($fecha_partido == $date) {
     if ($hora_partido > $time) {
-      $bet_error = "Este partido ya empezo, no se puede apostar";
       $hora_OK=0;
     } else {
       $hora_OK=1;
@@ -85,8 +84,10 @@ if (isset($_POST['submit'])){
         }
       }
     }
+  } else {
+    $bet_error = "Este partido ya empezo, no se puede apostar";
   }
-} 
+}
 
 // Processing Laplacios
 if (isset($_POST['submit2'])){
