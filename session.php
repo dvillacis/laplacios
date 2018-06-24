@@ -53,22 +53,26 @@ if (isset($_POST['submit'])){
     if ($valid_query_row > 0) {
       $bet_error = "Ya aposto para este partido";
     } else {
-      if ($apuesta_valor <= $login_saldo){
-        mysql_query("INSERT INTO apuestas (id_participante, id_partido, apuesta_equipo_1, apuesta_equipo_2, apuesta_valor, apuesta_fecha, apuesta_hora,procesada) VALUES ('$login_id', '$id_partido','$apuesta_equipo_1','$apuesta_equipo_2','$apuesta_valor','$date','$time',0)");
-        $res = $login_saldo-$apuesta_valor;
-        mysql_query("UPDATE participantes SET saldo='$res' WHERE id_participante='$login_id'");
-        $banco_saldo = $total_banco_prev_row[0]-$apuesta_valor;
-        mysql_query("UPDATE banco_central_laplacio SET total_laplacios='$banco_saldo'");
-        // SQL Query To Fetch Complete Information Of User
-        $ses_sql=mysql_query("select id_participante,nombre,saldo from participantes where nombre='$user_check'", $connection);
-        $row = mysql_fetch_assoc($ses_sql);
-        $login_session =$row['nombre'];
-        $login_id = $row['id_participante'];
-        $login_saldo = $row['saldo'];
-        header("location: profile.php");
-        $bet_error = "Apuesta guardada correctamente";
+      if ($fecha_partido == date('Y-m-d') && date('H:i:s')>$hora_partido) {
+        $bet_error = "Este partido ya empezo, no se puede apostar";
       } else {
-        $bet_error = "No tiene suficientes laplacios";
+        if ($apuesta_valor <= $login_saldo){
+          mysql_query("INSERT INTO apuestas (id_participante, id_partido, apuesta_equipo_1, apuesta_equipo_2, apuesta_valor, apuesta_fecha, apuesta_hora,procesada) VALUES ('$login_id', '$id_partido','$apuesta_equipo_1','$apuesta_equipo_2','$apuesta_valor','$date','$time',0)");
+          $res = $login_saldo-$apuesta_valor;
+          mysql_query("UPDATE participantes SET saldo='$res' WHERE id_participante='$login_id'");
+          $banco_saldo = $total_banco_prev_row[0]-$apuesta_valor;
+          mysql_query("UPDATE banco_central_laplacio SET total_laplacios='$banco_saldo'");
+          // SQL Query To Fetch Complete Information Of User
+          $ses_sql=mysql_query("select id_participante,nombre,saldo from participantes where nombre='$user_check'", $connection);
+          $row = mysql_fetch_assoc($ses_sql);
+          $login_session =$row['nombre'];
+          $login_id = $row['id_participante'];
+          $login_saldo = $row['saldo'];
+          header("location: profile.php");
+          $bet_error = "Apuesta guardada correctamente";
+        } else {
+          $bet_error = "No tiene suficientes laplacios";
+        }
       }
     }
   }
