@@ -52,6 +52,7 @@ if (isset($_POST['submit'])){
   $hora_OK = 0;
   if ($fecha_partido == $date) {
     if ($hora_partido > $time) {
+      header("location: profile.php");
       $bet_error = "Este partido ya empezo, no se puede apostar";
       $hora_OK=0;
     } else {
