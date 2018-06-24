@@ -51,7 +51,7 @@ if (isset($_POST['submit'])){
   $time = date('H:i:s');
   $hora_OK = 0;
   if ($fecha_partido == $date) {
-    if ($hora_partido > $time) {
+    if ($hora_partido < $time) {
       $hora_OK=0;
     } else {
       $hora_OK=1;
