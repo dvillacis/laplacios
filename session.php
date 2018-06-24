@@ -56,6 +56,8 @@ if (isset($_POST['submit'])){
     } else {
       $hora_OK=1;
     }
+  } else {
+    $hora_OK = 1;
   }
 
   if ($hora_OK==1) {
