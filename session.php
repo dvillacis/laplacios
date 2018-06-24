@@ -47,14 +47,24 @@ if (isset($_POST['submit'])){
   $total_banco_prev_query = mysql_query("SELECT * FROM banco_central_laplacio WHERE 1");
   $total_banco_prev_row = mysql_fetch_array($total_banco_prev_query);
 
-  if (empty($id_partido) || $apuesta_equipo_1<0 || $apuesta_equipo_2<0 || empty($apuesta_valor)){
-    $bet_error = "Algunos campos estan vacios";
-  } else {
-    if ($valid_query_row > 0) {
-      $bet_error = "Ya aposto para este partido";
+  $date = date('Y-m-d');
+  $time = date('H:i:s');
+  $hora_OK = 0;
+  if ($fecha_partido == $date) {
+    if ($hora_partido > $time) {
+      $bet_error = "Este partido ya empezo, no se puede apostar";
+      $hora_OK=0;
     } else {
-      if ($fecha_partido == date('Y-m-d') && date('H:i:s')>$hora_partido) {
-        $bet_error = "Este partido ya empezo, no se puede apostar";
+      $hora_OK=1;
+    }
+  }
+
+  if ($hora_OK==1) {
+    if (empty($id_partido) || $apuesta_equipo_1<0 || $apuesta_equipo_2<0 || empty($apuesta_valor)){
+      $bet_error = "Algunos campos estan vacios";
+    } else {
+      if ($valid_query_row > 0) {
+        $bet_error = "Ya aposto para este partido";
       } else {
         if ($apuesta_valor <= $login_saldo){
           mysql_query("INSERT INTO apuestas (id_participante, id_partido, apuesta_equipo_1, apuesta_equipo_2, apuesta_valor, apuesta_fecha, apuesta_hora,procesada) VALUES ('$login_id', '$id_partido','$apuesta_equipo_1','$apuesta_equipo_2','$apuesta_valor','$date','$time',0)");
