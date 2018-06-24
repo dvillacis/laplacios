@@ -49,12 +49,22 @@ if (isset($_POST['submit'])){
   $total_banco_prev_row = mysql_fetch_array($total_banco_prev_query);
 
   // Verifico si apuesta a la hora correcta
-  $fecha_hora_actual = strtotime(date("Y-m-d H:i:s"));
-  $partido_timestamp = $fecha_partido." ".$hora_partido;
-  $fecha_hora_partido = strtotime($partido_timestamp);
-  $diff = $fecha_hora_partido-$fecha_hora_actual;
+  $time_OK = 0;
+  if (strtotime($fecha_partido) === date("Y-m-d")){
+    if (strtotime($hora_partido) > date("H:i:s")) {
+      $time_OK=1;
+    } else {
+      $time_OK=0;
+    }
+  } else {
+    $time_OK=1;
+  }
+  //$fecha_hora_actual = strtotime(date("Y-m-d H:i:s"));
+  //$partido_timestamp = $fecha_partido." ".$hora_partido;
+  //$fecha_hora_partido = strtotime($partido_timestamp);
+  //$diff = $fecha_hora_partido-$fecha_hora_actual;
 
-  if ($fecha_hora_actual < $fecha_hora_partido) {
+  if ($time_OK === 1) {
     if (empty($id_partido) || $apuesta_equipo_1<0 || $apuesta_equipo_2<0 || empty($apuesta_valor)){
       $bet_error = "Algunos campos estan vacios";
     } else {
@@ -81,7 +91,7 @@ if (isset($_POST['submit'])){
       }
     }
   } else {
-    $bet_error = "Este partido ya empezo, no se puede apostar ".$diff;
+    $bet_error = "Este partido ya empezo, no se puede apostar ".$time_OK;
   }
 }
 
