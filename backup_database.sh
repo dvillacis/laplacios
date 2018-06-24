@@ -13,4 +13,4 @@ date=$(date +"%Y-%m-%d_%H_%M_%S")
 umask 177
 
 # Dump database into SQL file
-mysqldump --user=$user --host=$host $db_name > $db_name-$date.sql
+mysqldump --user=$user --host=$host $db_name > backups/$db_name-$date.sql
