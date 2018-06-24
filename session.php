@@ -43,24 +43,18 @@ if (isset($_POST['submit'])){
   $partido_query_row = mysql_fetch_array($partido_query_processing);
   $fecha_partido = $partido_query_row[3];
   $hora_partido = $partido_query_row[4];
+
   // Obtengo el saldo del banco
   $total_banco_prev_query = mysql_query("SELECT * FROM banco_central_laplacio WHERE 1");
   $total_banco_prev_row = mysql_fetch_array($total_banco_prev_query);
 
-  $date = date('Y-m-d');
-  $time = date('H:i:s');
-  $hora_OK = 0;
-  if ($fecha_partido == $date) {
-    if ($hora_partido > $time) {
-      $hora_OK=0;
-    } else {
-      $hora_OK=1;
-    }
-  } else {
-    $hora_OK = 1;
-  }
+  // Verifico si apuesta a la hora correcta
+  $fecha_hora_actual = new DateTime();
+  $partido_timestamp = $fecha_partido."T".$hora_partido;
+  $fecha_hora_partido = DateTime::createFromFormat("Y-m-d\\TH:i:s",$partido_timestamp);
+  $diff = $fecha_hora_actual->diff($fecha_hora_partido);
 
-  if ($hora_OK==1) {
+  if ($diff >= 0) {
     if (empty($id_partido) || $apuesta_equipo_1<0 || $apuesta_equipo_2<0 || empty($apuesta_valor)){
       $bet_error = "Algunos campos estan vacios";
     } else {
