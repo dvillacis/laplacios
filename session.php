@@ -50,7 +50,7 @@ if (isset($_POST['submit'])){
 
   // Verifico si apuesta a la hora correcta
   $time_OK = 0;
-  if (strcmp($fecha_partido,date("Y-m-d"))==0){
+  if (strtotime('now') == strtotime($fecha_partido)){
     if ($hora_partido > date("H:i:s")) {
       $time_OK=1;
     } else {
@@ -64,7 +64,7 @@ if (isset($_POST['submit'])){
   //$fecha_hora_partido = strtotime($partido_timestamp);
   //$diff = $fecha_hora_partido-$fecha_hora_actual;
 
-  if ($time_OK === 1) {
+  if ($time_OK == 1) {
     if (empty($id_partido) || $apuesta_equipo_1<0 || $apuesta_equipo_2<0 || empty($apuesta_valor)){
       $bet_error = "Algunos campos estan vacios";
     } else {
