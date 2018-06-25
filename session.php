@@ -69,7 +69,7 @@ if (isset($_POST['submit'])){
       $bet_error = "Algunos campos estan vacios";
     } else {
       if ($valid_query_row > 0) {
-        $bet_error = "Ya aposto para este partido";
+        $bet_error = "Ya aposto para este partido ".$time_OK;
       } else {
         if ($apuesta_valor <= $login_saldo){
           mysql_query("INSERT INTO apuestas (id_participante, id_partido, apuesta_equipo_1, apuesta_equipo_2, apuesta_valor, apuesta_fecha, apuesta_hora,procesada) VALUES ('$login_id', '$id_partido','$apuesta_equipo_1','$apuesta_equipo_2','$apuesta_valor','$date','$time',0)");
