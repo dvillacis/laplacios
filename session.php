@@ -49,8 +49,8 @@ if (isset($_POST['submit'])){
   $total_banco_prev_row = mysql_fetch_array($total_banco_prev_query);
 
   // Verifico si apuesta a la hora correcta
-  $time_OK = 0
-  $diff_fecha = strtotime(date('Y-m-d'))-strtotime($fecha_partido)
+  $time_OK = 0;
+  $diff_fecha = strtotime(date('Y-m-d'))-strtotime($fecha_partido);
   if ($diff_fecha == 0){
     if ($hora_partido > date("H:i:s")) {
       $time_OK=1;
