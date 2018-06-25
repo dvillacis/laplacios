@@ -50,7 +50,7 @@ if (isset($_POST['submit'])){
 
   // Verifico si apuesta a la hora correcta
   $time_OK = 0;
-  $diff_fecha = strtotime(date('Y-m-d'))-strtotime($fecha_partido);
+  $diff_fecha = date('Y-m-d')-$fecha_partido;
   if ($diff_fecha == 0){
     if ($hora_partido > date("H:i:s")) {
       $time_OK=1;
