@@ -50,7 +50,7 @@ if (isset($_POST['submit'])){
 
   // Verifico si apuesta a la hora correcta
   $time_OK = 0;
-  if (strtotime('now') == strtotime($fecha_partido)){
+  if (strtotime(date('Y-m-d')) == strtotime($fecha_partido)){
     if ($hora_partido > date("H:i:s")) {
       $time_OK=1;
     } else {
