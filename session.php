@@ -49,17 +49,18 @@ if (isset($_POST['submit'])){
   $total_banco_prev_row = mysql_fetch_array($total_banco_prev_query);
 
   // Verifico si apuesta a la hora correcta
-  $time_OK = 0;
-  $diff_fecha = date('Y-m-d')-strtotime($fecha_partido);
-  if ($diff_fecha == 0){
-    if ($hora_partido > date("H:i:s")) {
-      $time_OK=1;
-    } else {
-      $time_OK=0;
-    }
-  } else {
-    $time_OK=1;
-  }
+  $time_OK = 1;
+  //$formato = 'Y-m-d';
+  //$diff_fecha = -DateTime::createFromFormat($formato,date('Y-m-d'))+DateTime::createFromFormat($formato,$fecha_partido);
+  //if ($diff_fecha == 0){
+    //if ($hora_partido > date("H:i:s")) {
+      //$time_OK=1;
+   // } else {
+      //$time_OK=0;
+    //}
+  //} else {
+    //$time_OK=1;
+  //}
   //$fecha_hora_actual = strtotime(date("Y-m-d H:i:s"));
   //$partido_timestamp = $fecha_partido." ".$hora_partido;
   //$fecha_hora_partido = strtotime($partido_timestamp);
