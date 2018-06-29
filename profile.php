@@ -7,6 +7,24 @@ include('session.php');
 <head>
 <title>BANCO CENTRAL DEL LAPLACIO</title>
 <link href="style.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+function enableDisablePenalesTextFields() {
+  r1 = document.getElementById('apuesta_equipo_1').value
+  r2 = document.getElementById('apuesta_equipo_2').value
+  console.log(r1,r2)
+  if (r1==r2){
+    cb1 = document.getElementById('checkbox_penales').checked;
+    document.getElementById('apuesta_penales_equipo_1').disabled = !cb1;
+    document.getElementById('apuesta_penales_equipo_2').disabled = !cb1;
+  } else {
+    $('#checkbox_penales').attr('checked',false);
+    $('#apuesta_penales_equipo_1').attr('disabled',true);
+    $('#apuesta_penales_equipo_2').attr('disabled',true);
+    alert('el marcador no da empate')
+  }
+}
+</script>
 </head>
 <body>
 <div id="profile">
@@ -21,7 +39,7 @@ include('session.php');
   <form id="form" name="form" method="post" action="">
   <table>
     <tr>
-      <td>Partido</td>
+      <td><h3>Partido</h3></td>
       <td>
         <select name="id_partido">
           <?php
@@ -35,26 +53,29 @@ include('session.php');
       </td>
     </tr>
     <tr>
-      <td>Equipo 1</td>
-      <td><input id="number" min="0" step="1" type="number" name="apuesta_equipo_1" /></td>
-    </tr>
-    <tr>
-      <td>Equipo 2</td>
-      <td><input id="number" min="0" step="1" type="number" name="apuesta_equipo_2" /></td>
-    </tr>
-    <tr>
-      <td><input type="checkbox" name="apuesta_penales_bool" value="love" id="love"><label for="love"> Penales</label></td>
+      <td><h3>Tiempo Reglamentario + Alargues</h3></td>
     </tr>
     <tr>
       <td>Equipo 1</td>
-      <td><input id="number" min="0" step="1" type="number" name="apuesta_penales_equipo_1" /></td>
+      <td><input id="apuesta_equipo_1" min="0" step="1" type="number" name="apuesta_equipo_1" /></td>
     </tr>
     <tr>
       <td>Equipo 2</td>
-      <td><input id="number" min="0" step="1" type="number" name="apuesta_penales_equipo_2" /></td>
+      <td><input id="apuesta_equipo_2" min="0" step="1" type="number" name="apuesta_equipo_2" /></td>
     </tr>
     <tr>
-      <td>Apuesta</td>
+      <td><h3>Penales: <input type="checkbox" name="checkbox_penales" id="checkbox_penales" onclick="enableDisablePenalesTextFields();" /></h3></td>
+    </tr>
+    <tr>
+      <td>Equipo 1</td>
+      <td><input id="apuesta_penales_equipo_1" min="0" step="1" type="number" name="apuesta_penales_equipo_1" disabled/></td>
+    </tr>
+    <tr>
+      <td>Equipo 2</td>
+      <td><input id="apuesta_penales_equipo_2" min="0" step="1" type="number" name="apuesta_penales_equipo_2" disabled/></td>
+    </tr>
+    <tr>
+      <td><h3>Apuesta</h3></td>
       <td><input id="number" min="0" step="1" type="number" name="apuesta_valor" /> laplacios</td>
     </tr>
     <tr>
@@ -113,29 +134,4 @@ include('session.php');
     </tbody>
   </table>
 </div>
-<!-- <div class="">
-  <h2>Procesar Laplacios (ADMIN)</h2>
-  <form id="form" name="form" method="post" action="">
-    <table>
-      <tr>
-        <td>Partido</td>
-        <td>
-          <select name="id_partido_processing">
-            <?php
-            while($proc = mysql_fetch_array($processing_query)) {
-              $proc_name = $proc[1] . " - " . $proc[2] . " - " . $proc[3] . " " . $proc[4];
-              echo '<option value="'.$proc[0].'">'.$proc_name.'</option>';
-            }
-            echo "</select>";
-            ?>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><input type="submit" name="submit2" id="submit" value="Calcular" /></td>
-      </tr>
-    </table>
-    <span><?php echo $processing_error; ?></span>
-  </form>
-</div> -->
 </body>
