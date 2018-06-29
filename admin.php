@@ -96,7 +96,7 @@ if (isset($_POST['submit2'])){
     $id_participante = $ap[1];
     $participante_query_processing = mysql_query("SELECT * FROM participantes WHERE id_participante='$id_participante'");
     $participante_query_processing_row = mysql_fetch_array($participante_query_processing);
-    $saldo_participante = $participante_query_processing_row[2]
+    $saldo_participante = $participante_query_processing_row[2];
 
     // Obtengo el saldo del banco
     $total_banco_prev_query = mysql_query("SELECT * FROM banco_central_laplacio WHERE 1");
