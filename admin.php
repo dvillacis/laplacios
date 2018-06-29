@@ -101,7 +101,7 @@ if (isset($_POST['submit2'])){
     // Obtengo el saldo del banco
     $total_banco_prev_query = mysql_query("SELECT * FROM banco_central_laplacio WHERE 1");
     $total_banco_prev_row = mysql_fetch_array($total_banco_prev_query);
-    $total_laplacios_banco = $total_banco_prev_row[0]
+    $total_laplacios_banco = $total_banco_prev_row[0];
 
     // Calculo la ganancia en tiempo reglamentario
     $factor_penales = 1;
