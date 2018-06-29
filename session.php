@@ -42,7 +42,7 @@ $valid_query_row = mysql_num_rows($valid_query);
 if (isset($_POST['submit'])){
   // Obtengo el partido
   $partido_query = mysql_query("SELECT * FROM partidos where id_partido='$id_partido'");
-  $partido_query_row = mysql_fetch_array($partido_query_processing);
+  $partido_query_row = mysql_fetch_array($partido_query);
   $fecha_partido = $partido_query_row[3];
   $hora_partido = $partido_query_row[4];
 
@@ -58,7 +58,7 @@ if (isset($_POST['submit'])){
     } else {
       if ($apuesta_valor <= $login_saldo){
         // Inserto apuesta en tabla de apuestas
-        mysql_query("INSERT INTO apuestas (id_participante, id_partido, apuesta_equipo_1, apuesta_equipo_2, apuesta_penales_equipo_1, apuesta_penales_equipo_2, apuesta_check_penales, apuesta_valor, apuesta_fecha, apuesta_hora,procesada) VALUES ('$login_id', '$id_partido','$apuesta_equipo_1','$apuesta_equipo_2','$apuesta_penales_equipo_1','$apuesta_penales_equipo_2','$apuesta_check_penales','$apuesta_valor','$date','$time',0)");
+        mysql_query("INSERT INTO apuestas (id_participante, id_partido, apuesta_equipo_1, apuesta_equipo_2, apuesta_penales_equipo_1, apuesta_penales_equipo_2, penales_check, apuesta_valor, apuesta_fecha, apuesta_hora,procesada) VALUES ('$login_id', '$id_partido','$apuesta_equipo_1','$apuesta_equipo_2','$apuesta_penales_equipo_1','$apuesta_penales_equipo_2','$apuesta_check_penales','$apuesta_valor','$date','$time',0)");
         $res = $login_saldo-$apuesta_valor; // Disminuyo el saldo
         mysql_query("UPDATE participantes SET saldo='$res' WHERE id_participante='$login_id'");
         $banco_saldo = $total_banco_prev_row[0]-$apuesta_valor; // Actualizo el saldo del banco
