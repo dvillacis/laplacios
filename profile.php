@@ -95,6 +95,7 @@ function enableDisablePenalesTextFields() {
         <th>PARTIDO</th>
         <th>PRONOSTICO</th>
         <th>RESULTADO</th>
+        <th>RESULTADO PENALES</th>
         <th>APUESTA</th>
         <th>PROCESADA</th>
       </tr>
@@ -106,8 +107,10 @@ function enableDisablePenalesTextFields() {
         $g_row = mysql_fetch_array($g_query);
         $match = $g_row[1].'-'.$g_row[2].' '.$g_row[3].' '.$g_row[4];
         $pron = $bet[3].'-'.$bet[4];
+        $pronP = $bet[5].'-'.$bet[6];
         $resultado = $g_row[5].'-'.$g_row[6];
-        echo '<tr><td>'.$bet[6].'</td>'.'<td>'.$bet[7].'</td>'.'<td>'.$match.'</td>'.'<td>'.$pron.'</td><td>'.$resultado.'</td><td>'.$bet[5].'</td><td>'.$bet[8].'</td></tr>';
+        $resultadoP = $g_row[7].'-'.$g_row[8];
+        echo '<tr><td>'.$bet[6].'</td>'.'<td>'.$bet[7].'</td>'.'<td>'.$match.'</td>'.'<td>'.$pron.'</td><td>'.$pronP.'</td><td>'.$resultado.'</td><td>'.$resultadoP.'</td><td>'.$bet[5].'</td><td>'.$bet[8].'</td></tr>';
       }
     ?>
     </tbody>
