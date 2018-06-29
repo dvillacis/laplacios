@@ -94,6 +94,7 @@ function enableDisablePenalesTextFields() {
         <th>HORA</th>
         <th>PARTIDO</th>
         <th>PRONOSTICO</th>
+        <th>PRONOSTICO PENALES</th>
         <th>RESULTADO</th>
         <th>RESULTADO PENALES</th>
         <th>APUESTA</th>
