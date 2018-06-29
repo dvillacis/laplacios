@@ -111,7 +111,7 @@ function enableDisablePenalesTextFields() {
         $pronP = $bet[5].'-'.$bet[6];
         $resultado = $g_row[5].'-'.$g_row[6];
         $resultadoP = $g_row[7].'-'.$g_row[8];
-        echo '<tr><td>'.$bet[6].'</td>'.'<td>'.$bet[7].'</td>'.'<td>'.$match.'</td>'.'<td>'.$pron.'</td><td>'.$pronP.'</td><td>'.$resultado.'</td><td>'.$resultadoP.'</td><td>'.$bet[5].'</td><td>'.$bet[8].'</td></tr>';
+        echo '<tr><td>'.$bet[6].'</td>'.'<td>'.$bet[7].'</td>'.'<td>'.$match.'</td>'.'<td>'.$pron.'</td><td>'.$pronP.'</td><td>'.$resultado.'</td><td>'.$resultadoP.'</td><td>'.$bet[8].'</td><td>'.$bet[11].'</td></tr>';
       }
     ?>
     </tbody>
