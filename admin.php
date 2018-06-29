@@ -121,7 +121,7 @@ if (isset($_POST['submit2'])){
   }
 
   // Actualizo la cotizacion del laplacio
-  calcular_cotizacion_laplacio()
+  calcular_cotizacion_laplacio();
 
   // Actualizo el estado del partido
   mysql_query("UPDATE partidos SET revisado=1 WHERE id_partido='$partido_query_processing_row[0]'");
