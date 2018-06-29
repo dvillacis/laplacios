@@ -76,7 +76,7 @@ function enableDisablePenalesTextFields() {
     </tr>
     <tr>
       <td><h3>Apuesta</h3></td>
-      <td><input id="number" min="0" step="1" type="number" name="apuesta_valor" /> laplacios</td>
+      <td><input id="apuesta_valor" min="0" step="1" type="number" name="apuesta_valor" /> laplacios</td>
     </tr>
     <tr>
       <td><input type="submit" name="submit" id="submit" value="Apostar" /></td>
