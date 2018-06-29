@@ -54,7 +54,7 @@ function calcular_ganancia_penales($resultado_penales_equipo_1,$resultado_penale
 
 function calcular_cotizacion_laplacio(){
   $total_laplacios_circulando_query = mysql_query("SELECT SUM(saldo) FROM participantes WHERE 1 ");
-  $total_laplacios_circulando_row = mysql_fetch_array($total_laplacios_circulando_query):
+  $total_laplacios_circulando_row = mysql_fetch_array($total_laplacios_circulando_query);
   $total_laplacios_circulando = $total_laplacios_circulando_row[0];
 
   // Obtengo el saldo en dolares del banco
