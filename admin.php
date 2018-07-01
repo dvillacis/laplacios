@@ -9,7 +9,7 @@ function pagar_apuesta($id_participante, $id_apuesta, $valor_pago_apuesta, $sald
   mysql_query("UPDATE participantes SET saldo='$saldo_new' WHERE id_participante='$id_participante'"); // Actualizo el saldo del participante
   $nuevo_saldo_total_banco = $total_laplacios_banco+$valor_pago_apuesta;
   mysql_query("INSERT INTO transacciones (id_participante, id_apuesta, monto, total_participante, fecha, hora) VALUES ('$id_participante','$id_apuesta','$valor_pago_apuesta','$saldo_new','$current_date','$current_time')");
-  mysql_query("UPDATE banco_central_laplacio SET total_laplacios='$saldo_total_laplacios'");
+  mysql_query("UPDATE banco_central_laplacio SET total_laplacios='$nuevo_saldo_total_banco'");
 }
 
 function calcular_ganancia_tiempo_reglamentario($resultado_equipo_1,$resultado_equipo_2,$apuesta_equipo_1,$apuesta_equipo_2){
