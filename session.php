@@ -7,7 +7,8 @@ $current_time = date('H:i:s');
 
 // Getting current games
 //$games_query=mysql_query("SELECT DISTINCT id_partido,equipo_1,equipo_2,fecha,hora FROM partidos WHERE fecha >= '$current_date' and hora >= '$current_time'",$connection);
-$games_query=mysql_query("SELECT DISTINCT id_partido,equipo_1,equipo_2,fecha,hora FROM partidos WHERE fecha >= '$current_date' AND revisado='0'",$connection);
+//$games_query=mysql_query("SELECT DISTINCT id_partido,equipo_1,equipo_2,fecha,hora FROM partidos WHERE fecha >= '$current_date' AND revisado='0'",$connection);
+$games_query=mysql_query("SELECT DISTINCT id_partido,equipo_1,equipo_2,fecha,hora FROM partidos WHERE revisado='0'",$connection);
 
 // Getting bets
 $bets_query=mysql_query("select * from apuestas where id_participante='$login_id'");
