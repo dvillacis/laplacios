@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
         $username = mysql_real_escape_string($username);
         $password = mysql_real_escape_string($password);
         // Selecting Database
-        $db = mysql_select_db("FIFA2018", $connection);
+        $db = mysql_select_db("FIFA2018_BACK", $connection);
         // SQL query to fetch information of registerd users and finds user match.
         $query = mysql_query("select id_participante,nombre,saldo from participantes where passwd='$password' AND nombre='$username'", $connection);
         $rows = mysql_num_rows($query);
