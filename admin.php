@@ -32,26 +32,6 @@ function calcular_ganancia_tiempo_reglamentario($resultado_equipo_1,$resultado_e
   return $factor;
 }
 
-function calcular_ganancia_penales($resultado_penales_equipo_1,$resultado_penales_equipo_2,$apuesta_penales_equipo_1,$apuesta_penales_equipo_2){
-  $factor = 1;
-  if ($resultado_penales_equipo_1 == $apuesta_penales_equipo_1 && $resultado_penales_equipo_2==$apuesta_penales_equipo_2){ //Acerto al marcador
-    $factor = 3;
-  } else {
-    $res_diff = $resultado_penales_equipo_1-$resultado_penales_equipo_2;
-    $ap_diff = $apuesta_penales_equipo_1-$apuesta_penales_equipo_2;
-    if ($res_diff == $ap_diff){ // Acerto a la diferencia
-      $factor = 2;
-    } else {
-      $res_sign = $res_diff < 0 ? -1 : ( $res_diff > 0 ? 1 : 0 );
-      $ap_sign = $ap_diff < 0 ? -1 : ( $ap_diff > 0 ? 1 : 0 );
-      if ($res_sign == $ap_sign){ // Acerto al ganador
-        $factor = 1;
-      }
-    }
-  }
-  return $factor;
-}
-
 function calcular_cotizacion_laplacio(){
   $total_laplacios_circulando_query = mysql_query("SELECT SUM(saldo) FROM participantes WHERE 1 ");
   $total_laplacios_circulando_row = mysql_fetch_array($total_laplacios_circulando_query);
@@ -78,8 +58,7 @@ if (isset($_POST['submit2'])){
   $partido_query_processing_row = mysql_fetch_array($partido_query_processing);
   $resultado_equipo_1_processing = $partido_query_processing_row[5];
   $resultado_equipo_2_processing = $partido_query_processing_row[6];
-  $resultado_penales_equipo_1_processing = $partido_query_processing_row[7];
-  $resultado_penales_equipo_2_processing = $partido_query_processing_row[8];
+  $resultado_check_penales = $partido_query_processing_row[7];
 
   $apuestas_query_processing = mysql_query("SELECT * FROM apuestas where id_partido='$id_partido_processing'");
   while ($ap = mysql_fetch_array($apuestas_query_processing)) {
@@ -87,10 +66,8 @@ if (isset($_POST['submit2'])){
     $id_apuesta = $ap[0];
     $apuesta_resultado_equipo_1 = $ap[3];
     $apuesta_resultado_equipo_2 = $ap[4];
-    $apuesta_penales_resultado_equipo_1 = $ap[5];
-    $apuesta_penales_resultado_equipo_2 = $ap[6];
-    $apuesta_check_penales = $ap[7];
-    $apuesta_valor = $ap[8];
+    $apuesta_check_penales = $ap[5];
+    $apuesta_valor = $ap[6];
 
     // Obtengo el participante
     $id_participante = $ap[1];
@@ -106,8 +83,8 @@ if (isset($_POST['submit2'])){
     // Calculo la ganancia en tiempo reglamentario
     $factor_penales = 1;
     $factor_tr = calcular_ganancia_tiempo_reglamentario($resultado_equipo_1_processing,$resultado_equipo_2_processing,$apuesta_resultado_equipo_1,$apuesta_resultado_equipo_2);
-    if ($apuesta_check_penales == 1) {
-      $factor_penales = calcular_ganancia_penales($resultado_penales_equipo_1_processing,$resultado_penales_equipo_2_processing,$apuesta_penales_resultado_equipo_1,$apuesta_penales_resultado_equipo_2);
+    if ($apuesta_check_penales == 1 && $resultado_check_penales == 1) {
+      $factor_penales = 1.5;
     }
     $ganancia_participante = $apuesta_valor*$factor_tr*$factor_penales;
 

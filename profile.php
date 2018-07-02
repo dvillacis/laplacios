@@ -8,23 +8,6 @@ include('session.php');
 <title>BANCO CENTRAL DEL LAPLACIO</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script type="text/javascript">
-function enableDisablePenalesTextFields() {
-  r1 = document.getElementById('apuesta_equipo_1').value
-  r2 = document.getElementById('apuesta_equipo_2').value
-  console.log(r1,r2)
-  if (r1==r2){
-    cb1 = document.getElementById('checkbox_penales').checked;
-    document.getElementById('apuesta_penales_equipo_1').disabled = !cb1;
-    document.getElementById('apuesta_penales_equipo_2').disabled = !cb1;
-  } else {
-    $('#checkbox_penales').attr('checked',false);
-    $('#apuesta_penales_equipo_1').attr('disabled',true);
-    $('#apuesta_penales_equipo_2').attr('disabled',true);
-    alert('el marcador no da empate')
-  }
-}
-</script>
 </head>
 <body>
 <div id="profile">
@@ -53,7 +36,7 @@ function enableDisablePenalesTextFields() {
       </td>
     </tr>
     <tr>
-      <td><h3>Tiempo Reglamentario + Alargues</h3></td>
+      <td><h3>Marcador Global</h3></td>
     </tr>
     <tr>
       <td>Equipo 1</td>
@@ -64,19 +47,7 @@ function enableDisablePenalesTextFields() {
       <td><input id="apuesta_equipo_2" min="0" step="1" type="number" name="apuesta_equipo_2" /></td>
     </tr>
     <tr>
-      <td><h3>Penales: <input type="checkbox" name="checkbox_penales" id="checkbox_penales" onclick="enableDisablePenalesTextFields();" /></h3></td>
-    </tr>
-    <tr>
-      <td>Equipo 1</td>
-      <td><input id="apuesta_penales_equipo_1" min="0" step="1" type="number" name="apuesta_penales_equipo_1" disabled/></td>
-    </tr>
-    <tr>
-      <td>Equipo 2</td>
-      <td><input id="apuesta_penales_equipo_2" min="0" step="1" type="number" name="apuesta_penales_equipo_2" disabled/></td>
-    </tr>
-    <tr>
-      <td><h3>Apuesta</h3></td>
-      <td><input id="apuesta_valor" min="0" step="1" type="number" name="apuesta_valor" /> laplacios</td>
+      <td><h3>Penales: <input type="checkbox" name="checkbox_penales" id="checkbox_penales" /></h3></td>
     </tr>
     <tr>
       <td><input type="submit" name="submit" id="submit" value="Apostar" /></td>

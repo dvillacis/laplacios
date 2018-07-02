@@ -28,8 +28,6 @@ $bet_error = "";
 $id_partido = $_POST['id_partido'];
 $apuesta_equipo_1= $_POST['apuesta_equipo_1'];
 $apuesta_equipo_2= $_POST['apuesta_equipo_2'];
-$apuesta_penales_equipo_1= $_POST['apuesta_penales_equipo_1'];
-$apuesta_penales_equipo_2= $_POST['apuesta_penales_equipo_2'];
 $apuesta_check_penales= isset($_POST['checkbox_penales']);
 $apuesta_valor= $_POST['apuesta_valor'];
 $date = date('Y-m-d');
@@ -58,7 +56,7 @@ if (isset($_POST['submit'])){
     } else {
       if ($apuesta_valor <= $login_saldo){
         // Inserto apuesta en tabla de apuestas
-        mysql_query("INSERT INTO apuestas (id_participante, id_partido, apuesta_equipo_1, apuesta_equipo_2, apuesta_penales_equipo_1, apuesta_penales_equipo_2, penales_check, apuesta_valor, apuesta_fecha, apuesta_hora,procesada) VALUES ('$login_id', '$id_partido','$apuesta_equipo_1','$apuesta_equipo_2','$apuesta_penales_equipo_1','$apuesta_penales_equipo_2','$apuesta_check_penales','$apuesta_valor','$date','$time',0)");
+        mysql_query("INSERT INTO apuestas (id_participante, id_partido, apuesta_equipo_1, apuesta_equipo_2, apuesta_check_penales, apuesta_valor, apuesta_fecha, apuesta_hora,procesada) VALUES ('$login_id', '$id_partido','$apuesta_equipo_1','$apuesta_equipo_2','$apuesta_check_penales','$apuesta_valor','$date','$time',0)");
         $res = $login_saldo-$apuesta_valor; // Disminuyo el saldo
         mysql_query("UPDATE participantes SET saldo='$res' WHERE id_participante='$login_id'");
         $banco_saldo = $total_banco_prev_row[0]-$apuesta_valor; // Actualizo el saldo del banco
