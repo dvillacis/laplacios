@@ -50,6 +50,10 @@ include('session.php');
       <td><h3>Penales: <input type="checkbox" name="checkbox_penales" id="checkbox_penales" /></h3></td>
     </tr>
     <tr>
+      <td><h3>Apuesta</h3></td>
+      <td><input id="apuesta_valor" min="0" step="1" type="number" name="apuesta_valor" /> laplacios</td>
+    </tr>
+    <tr>
       <td><input type="submit" name="submit" id="submit" value="Apostar" /></td>
     </tr>
   </table>
