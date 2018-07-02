@@ -69,9 +69,9 @@ include('session.php');
         <th>HORA</th>
         <th>PARTIDO</th>
         <th>PRONOSTICO</th>
-        <th>PRONOSTICO PENALES</th>
+        <th>PRON. PENALES</th>
         <th>RESULTADO</th>
-        <th>RESULTADO PENALES</th>
+        <th>RES. PENALES</th>
         <th>APUESTA</th>
         <th>PROCESADA</th>
       </tr>
