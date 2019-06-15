@@ -104,7 +104,10 @@ include('session.php');
 									            <td><input type="submit" name="submit" id="submit" value="Apostar" /></td>
 									          </tr> -->
 									        </table>
-									        <span><?php echo $bet_error; ?></span>
+													<div class="style-msg successmsg">
+														<div class="sb-msg"><?php echo $bet_error; ?></div>
+														<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+													</div>
 									      </form>
 
 											</div>
