@@ -97,9 +97,12 @@ include('session.php');
 									            <td><h3>Apuesta</h3></td>
 									            <td><input id="apuesta_valor" min="0" step="1" type="number" name="apuesta_valor" /> laplacios</td>
 									          </tr>
-									          <tr>
+														<div class="col_full nobottommargin">
+															<button class="button button-3d button-black nomargin" id="submit" name="submit" value=" Apostar">Apostar</button>
+														</div>
+									          <!-- <tr>
 									            <td><input type="submit" name="submit" id="submit" value="Apostar" /></td>
-									          </tr>
+									          </tr> -->
 									        </table>
 									        <span><?php echo $bet_error; ?></span>
 									      </form>
