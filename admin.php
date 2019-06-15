@@ -104,7 +104,7 @@ if (isset($_POST['submit2'])){
   // Actualizo el estado del partido
   mysql_query("UPDATE partidos SET revisado=1 WHERE id_partido='$partido_query_processing_row[0]'");
   $processing_error = "Procesadas las apuestas del partido".$partido_query_processing_row[1]." - ".$partido_query_processing_row[2]." - ".$partido_query_processing_row[3]. " ".$partido_query_processing_row[4]." correctamente";
-  header("location: profile.php");
+  //header("location: profile.php");
 }
 ?>
 <!DOCTYPE html>
