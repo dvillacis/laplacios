@@ -57,7 +57,8 @@ if (isset($_POST['submit'])){
     } else {
       if ($apuesta_valor <= $login_saldo){
         // Inserto apuesta en tabla de apuestas
-        mysql_query("INSERT INTO apuestas (id_participante, id_partido, apuesta_equipo_1, apuesta_equipo_2, apuesta_check_penales, apuesta_valor, apuesta_fecha, apuesta_hora,procesada) VALUES ('$login_id', '$id_partido','$apuesta_equipo_1','$apuesta_equipo_2','$apuesta_check_penales','$apuesta_valor','$date','$time',0)");
+        $mysql_query_string = "INSERT INTO apuestas (id_participante, id_partido, apuesta_equipo_1, apuesta_equipo_2, apuesta_check_penales, apuesta_valor, apuesta_fecha, apuesta_hora,procesada) VALUES ('$login_id', '$id_partido','$apuesta_equipo_1','$apuesta_equipo_2','$apuesta_check_penales','$apuesta_valor','$date','$time',0)";
+        mysql_query($mysql_query_string);
         $res = $login_saldo-$apuesta_valor; // Disminuyo el saldo
         mysql_query("UPDATE participantes SET saldo='$res' WHERE id_participante='$login_id'");
         $banco_saldo = $total_banco_prev_row[0]-$apuesta_valor; // Actualizo el saldo del banco
@@ -68,7 +69,7 @@ if (isset($_POST['submit'])){
         $login_session =$row['nombre'];
         $login_id = $row['id_participante'];
         $login_saldo = $row['saldo'];
-        header("location: profile.php");
+        //header("location: profile.php");
         $bet_error = "Apuesta guardada correctamente";
       } else {
         $bet_error = "No tiene suficientes laplacios";
