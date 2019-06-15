@@ -40,7 +40,7 @@ if(isset($_SESSION['login_user'])){
 					<div class="container-fluid vertical-middle divcenter clearfix">
 
 						<div class="center">
-							<h1>Banco Central Laplacio</h1>
+							<h1 style="color:#FFF">Banco Central Laplacio</h1>
 						</div>
 
 						<div class="card divcenter noradius noborder" style="max-width: 400px;">
