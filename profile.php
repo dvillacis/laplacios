@@ -53,9 +53,9 @@ include('session.php');
 									<div class="tabs tabs-alt clearfix" id="tabs-profile">
 
 										<ul class="tab-nav clearfix">
-											<li><a href="#tab-enviar-apuesta"><i class="icon-rss2"></i> Enviar Apuesta</a></li>
-											<li><a href="#tab-mis-apuestas"><i class="icon-pencil2"></i> Mis Apuestas </a></li>
-											<li><a href="#tab-posiciones"><i class="icon-reply"></i> Tabla de Posiciones</a></li>
+											<li><a href="#tab-enviar-apuesta"><i class="icon-pencil"></i> Enviar Apuesta</a></li>
+											<li><a href="#tab-mis-apuestas"><i class="icon-coins"></i> Mis Apuestas </a></li>
+											<li><a href="#tab-posiciones"><i class="icon-table"></i> Tabla de Posiciones</a></li>
 										</ul>
 
 										<div class="tab-container">
