@@ -1,6 +1,6 @@
 <?php
 // Establishing Connection with Server by passing server_name, user_id and password as a parameter
-$connection = mysql_connect("localhost", "laplacios2018", "");
+$connection = mysql_connect("localhost", "root", "laplacios");
 // Selecting Database
 $db = mysql_select_db("COPA_AMERICA_2019", $connection);
 session_start();// Starting Session
