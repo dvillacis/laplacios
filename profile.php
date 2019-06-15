@@ -137,7 +137,7 @@ include('session.php');
 													$pronP = $bet[5];
 													$resultado = $g_row[5].'-'.$g_row[6];
 													$resultadoP = $g_row[7];
-													echo '<tr><td>'.$bet[9].'</td>'.'<td>'.$bet[10].'</td>'.'<td>'.$match.'</td>'.'<td>'.$pron.'</td><td>'.$pronP.'</td><td>'.$resultado.'</td><td>'.$resultadoP.'</td><td>'.$bet[6].'</td><td>'.$bet[9].'</td></tr>';
+													echo '<tr><td>'.$bet[9].'</td>'.'<td>'.$bet[10].'</td>'.'<td>'.$match.'</td>'.'<td>'.$pron.'</td><td>'.$pronP.'</td><td>'.$resultado.'</td><td>'.$resultadoP.'</td><td>'.$bet[8].'</td><td>'.$bet[11].'</td></tr>';
 												}
 												?>
 											</tbody>
