@@ -37,14 +37,14 @@ if(isset($_SESSION['login_user'])){
 				<div class="section nopadding nomargin" style="width: 100%; height: 100%; position: absolute; left: 0; top: 0; background: #444;"></div>
 
 				<div class="section nobg full-screen nopadding nomargin">
-					<div id="main" class="container-fluid vertical-middle divcenter clearfix">
+					<div class="container-fluid vertical-middle divcenter clearfix">
 
 						<div class="center">
 							<h1>Banco Central Laplacio</h1>
 						</div>
 
 						<div class="card divcenter noradius noborder" style="max-width: 400px;">
-							<div id="login" class="card-body" style="padding: 40px;">
+							<div class="card-body" style="padding: 40px;">
 								<form id="login-form" name="login-form" class="nobottommargin" action="" method="post">
 									<h3>Login to your Account</h3>
 
