@@ -46,7 +46,6 @@ if(isset($_SESSION['login_user'])){
 						<div class="card divcenter noradius noborder" style="max-width: 400px;">
 							<div class="card-body" style="padding: 40px;">
 								<form id="login-form" name="login-form" class="nobottommargin" action="" method="post">
-									<h3>Login to your Account</h3>
 
 									<div class="col_full">
 										<label for="login-form-username">Username:</label>

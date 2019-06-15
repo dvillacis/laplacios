@@ -20,7 +20,10 @@ include('session.php');
 	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
-<body>
+<body class="stretched">
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
 	<!-- Content
 		============================================= -->
 		<section id="content">
@@ -178,6 +181,8 @@ include('session.php');
 			</div>
 
 		</section><!-- #content end -->
+
+	</div>
 
 		<!-- Go To Top
 		============================================= -->
