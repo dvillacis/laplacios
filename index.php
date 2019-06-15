@@ -50,12 +50,12 @@ if(isset($_SESSION['login_user'])){
 
 									<div class="col_full">
 										<label for="login-form-username">Username:</label>
-										<input type="text" id="login-form-username" name="login-form-username" value="" class="form-control not-dark" />
+										<input type="text" id="name" name="username" value="" class="form-control not-dark" />
 									</div>
 
 									<div class="col_full">
 										<label for="login-form-password">Password:</label>
-										<input type="password" id="login-form-password" name="login-form-password" value="" class="form-control not-dark" />
+										<input type="password" id="password" name="password" value="" class="form-control not-dark" />
 									</div>
 
 									<div class="col_full nobottommargin">
@@ -88,7 +88,7 @@ if(isset($_SESSION['login_user'])){
 	<script src="js/functions.js"></script>
 
 </body>
-<body>
+<!-- <body>
 	<div id="main">
 		<h1>Banco Central del Laplacio</h1>
 		<div id="login">
@@ -103,5 +103,5 @@ if(isset($_SESSION['login_user'])){
 			</form>
 		</div>
 	</div>
-</body>
+</body> -->
 </html>
