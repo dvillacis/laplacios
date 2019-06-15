@@ -436,6 +436,25 @@ include('session.php');
 			</div>
 
 		</section><!-- #content end -->
+
+		<!-- Go To Top
+		============================================= -->
+		<div id="gotoTop" class="icon-angle-up"></div>
+
+		<!-- External JavaScripts
+		============================================= -->
+		<script src="js/jquery.js"></script>
+		<script src="js/plugins.js"></script>
+
+		<!-- Footer Scripts
+		============================================= -->
+		<script src="js/functions.js"></script>
+
+		<script>
+			jQuery( "#tabs-profile" ).on( "tabsactivate", function( event, ui ) {
+				jQuery( '.flexslider .slide' ).resize();
+			});
+		</script>
 </body>
 <body>
   <div id="profile">
