@@ -112,7 +112,7 @@ include('session.php');
 
 									</div>
 									<div class="tab-content clearfix" id="tab-mis-apuestas">
-
+										<h2>Mis Apuestas</h2>
 										<table class="table table-bordered table-striped">
 											<thead>
 												<tr>
@@ -145,7 +145,7 @@ include('session.php');
 
 									</div>
 									<div class="tab-content clearfix" id="tab-posiciones">
-
+										<h2>Tabla de Posiciones</h2>
 										<div class="clear topmargin-sm"></div>
 										<table class="table table-bordered table-striped">
 											<thead>
