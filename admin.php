@@ -67,8 +67,8 @@ if (isset($_POST['submit2'])){
     $id_apuesta = $ap[0];
     $apuesta_resultado_equipo_1 = $ap[3];
     $apuesta_resultado_equipo_2 = $ap[4];
-    $apuesta_check_penales = $ap[5];
-    $apuesta_valor = $ap[6];
+    $apuesta_check_penales = $ap[7];
+    $apuesta_valor = $ap[8];
 
     // Obtengo el participante
     $id_participante = $ap[1];
