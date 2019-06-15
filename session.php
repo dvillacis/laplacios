@@ -50,10 +50,10 @@ if (isset($_POST['submit'])){
   $total_banco_prev_row = mysql_fetch_array($total_banco_prev_query);
 
   if (empty($id_partido) || $apuesta_equipo_1<0 || $apuesta_equipo_2<0 || empty($apuesta_valor)){
-    $bet_error = "Algunos campos estan vacios";
+    $bet_error = "ERROR: Algunos campos estan vacios";
   } else {
     if ($valid_query_row > 0) {
-      $bet_error = "Ya aposto para este partido ".$diff_fecha;
+      $bet_error = "ERROR: Ya aposto para este partido ".$diff_fecha;
     } else {
       if ($apuesta_valor <= $login_saldo){
         // Inserto apuesta en tabla de apuestas

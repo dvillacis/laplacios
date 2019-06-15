@@ -93,14 +93,17 @@ include('session.php');
 									            <td><h3>Apuesta</h3></td>
 									            <td><input id="apuesta_valor" min="1" step="1" type="number" name="apuesta_valor" /> laplacios</td>
 									          </tr>
-														<div class="col_full nobottommargin">
-															<button class="button button-3d button-black nomargin" id="submit" name="submit" value=" Apostar">Apostar</button>
-														</div>
+														<tr>
+															<td>
+																<div class="col_full nobottommargin">
+																	<button class="button button-3d" id="submit" name="submit" value=" Apostar">Apostar</button>
+																</div>
+															</td>
+														</tr>
 									          <!-- <tr>
 									            <td><input type="submit" name="submit" id="submit" value="Apostar" /></td>
 									          </tr> -->
 									        </table>
-													<span><?php echo $mysql_query_string; ?></span>
 									        <span><?php echo $bet_error; ?></span>
 									      </form>
 
