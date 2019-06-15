@@ -59,7 +59,47 @@ include('session.php');
 
 											<div class="tab-content clearfix" id="tab-enviar-apuesta">
 
-
+												<h2>Enviar Apuesta</h2>
+									      <form id="form" name="form" method="post" action="">
+									        <table>
+									          <tr>
+									            <td><h3>Partido</h3></td>
+									            <td>
+									              <select name="id_partido">
+									                <?php
+									                while($game = mysql_fetch_array($games_query)) {
+									                  $partido_name = $game[1] . " - " . $game[2] . " - " . $game[3] . " " . $game[4];
+									                  echo '<option value="'.$game[0].'">'.$partido_name.'</option>';
+									                }
+									                echo "</select>";
+									                ?>
+									              </select>
+									            </td>
+									          </tr>
+									          <tr>
+									            <td><h3>Marcador Global</h3></td>
+									          </tr>
+									          <tr>
+									            <td>Equipo 1</td>
+									            <td><input id="apuesta_equipo_1" min="0" step="1" type="number" name="apuesta_equipo_1" /></td>
+									          </tr>
+									          <tr>
+									            <td>Equipo 2</td>
+									            <td><input id="apuesta_equipo_2" min="0" step="1" type="number" name="apuesta_equipo_2" /></td>
+									          </tr>
+									          <tr>
+									            <td><h3>Penales: <input type="checkbox" name="checkbox_penales" id="checkbox_penales" /></h3></td>
+									          </tr>
+									          <tr>
+									            <td><h3>Apuesta</h3></td>
+									            <td><input id="apuesta_valor" min="0" step="1" type="number" name="apuesta_valor" /> laplacios</td>
+									          </tr>
+									          <tr>
+									            <td><input type="submit" name="submit" id="submit" value="Apostar" /></td>
+									          </tr>
+									        </table>
+									        <span><?php echo $bet_error; ?></span>
+									      </form>
 
 											</div>
 											<div class="tab-content clearfix" id="tab-mis-apuestas">
@@ -95,69 +135,27 @@ include('session.php');
 												</table>
 
 											</div>
-											<div class="tab-content clearfix" id="tab-replies">
+											<div class="tab-content clearfix" id="tab-posiciones">
 
 												<div class="clear topmargin-sm"></div>
-												<ol class="commentlist noborder nomargin nopadding clearfix">
-													<li class="comment even thread-even depth-1" id="li-comment-1">
-														<div id="comment-1" class="comment-wrap clearfix">
-															<div class="comment-meta">
-																<div class="comment-author vcard">
-																	<span class="comment-avatar clearfix">
-																	<img alt='' src='http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=60' class='avatar avatar-60 photo avatar-default' height='60' width='60' /></span>
-																</div>
-															</div>
-															<div class="comment-content clearfix">
-																<div class="comment-author">John Doe<span><a href="#" title="Permalink to this comment">April 24, 2012 at 10:46 am</a></span></div>
-																<p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-																<a class='comment-reply-link' href='#'><i class="icon-reply"></i></a>
-															</div>
-															<div class="clear"></div>
-														</div>
-														<ul class='children'>
-															<li class="comment byuser comment-author-_smcl_admin odd alt depth-2" id="li-comment-3">
-																<div id="comment-3" class="comment-wrap clearfix">
-																	<div class="comment-meta">
-																		<div class="comment-author vcard">
-
-																			<span class="comment-avatar clearfix">
-																			<img alt='' src='http://1.gravatar.com/avatar/30110f1f3a4238c619bcceb10f4c4484?s=40&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D40&amp;r=G' class='avatar avatar-40 photo' height='40' width='40' /></span>
-
-																		</div>
-																	</div>
-																	<div class="comment-content clearfix">
-																		<div class="comment-author"><a href='#' rel='external nofollow' class='url'>SemiColon</a><span><a href="#" title="Permalink to this comment">April 25, 2012 at 1:03 am</a></span></div>
-
-																		<p>Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-
-																		<a class='comment-reply-link' href='#'><i class="icon-reply"></i></a>
-																	</div>
-																	<div class="clear"></div>
-																</div>
-															</li>
-														</ul>
-													</li>
-
-													<li class="comment byuser comment-author-_smcl_admin even thread-odd thread-alt depth-1" id="li-comment-2">
-														<div class="comment-wrap clearfix">
-															<div class="comment-meta">
-																<div class="comment-author vcard">
-																	<span class="comment-avatar clearfix">
-																	<img alt='' src='http://1.gravatar.com/avatar/30110f1f3a4238c619bcceb10f4c4484?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' /></span>
-																</div>
-															</div>
-															<div class="comment-content clearfix">
-																<div class="comment-author"><a href='http://themeforest.net/user/semicolonweb' rel='external nofollow' class='url'>SemiColon</a><span><a href="#" title="Permalink to this comment">April 25, 2012 at 1:03 am</a></span></div>
-
-																<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-
-																<a class='comment-reply-link' href='#'><i class="icon-reply"></i></a>
-															</div>
-															<div class="clear"></div>
-														</div>
-													</li>
-
-												</ol>
+												<table class="table1">
+									        <thead>
+									          <tr>
+									            <th>POS</th>
+									            <th>PARTICIPANTE</th>
+									            <th>LAPLACIOS</th>
+									          </tr>
+									        </thead>
+									        <tbody>
+									          <?php
+									          $indice=1;
+									          while ($participant = mysql_fetch_array($leader_query)){
+									            echo '<tr><td>'.$indice.'</td><td>'.$participant[0].'</td><td>'.$participant[1].'</td></tr>';
+									            $indice = $indice+1;
+									          }
+									          ?>
+									        </tbody>
+									      </table>
 
 											</div>
 
