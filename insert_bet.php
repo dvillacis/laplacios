@@ -11,7 +11,8 @@ $time = date('h:i:s');
 $valid_query = mysql_query("SELECT * FROM apuestas WHERE id_participante='$login_id' AND id_partido='$id_partido' ");
 $valid_query_row = mysql_num_rows($valid_query);
 if ($valid_query_row == 0) {
-  mysql_query("INSERT INTO apuestas (id_participante, id_partido, apuesta_equipo_1, apuesta_equipo_2, apuesta_valor, apuesta_fecha, apuesta_hora) VALUES ('$login_id', '$id_partido','$apuesta_equipo_1','$apuesta_equipo_2','$apuesta_valor','$date','$time')");
+  $mysql_query_string = "INSERT INTO apuestas (id_participante, id_partido, apuesta_equipo_1, apuesta_equipo_2, apuesta_valor, apuesta_fecha, apuesta_hora) VALUES ('$login_id', '$id_partido','$apuesta_equipo_1','$apuesta_equipo_2','$apuesta_valor','$date','$time')"
+  mysql_query($mysql_query_string);
   $bet_error = "Apuesta guardada correctamente";
 } else {
   $bet_error = "Ya aposto para este partido";
