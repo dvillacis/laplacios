@@ -4,7 +4,7 @@
 user="laplacios2018"
 password=""
 host=""
-db_name="FIFA2018_BACK"
+db_name="COPA_AMERICA_2019"
 
 # Other options
 date=$(date +"%Y-%m-%d_%H_%M_%S")
