@@ -64,7 +64,7 @@ include('session.php');
 
 												<h2>Enviar Apuesta</h2>
 									      <form id="form" name="form" method="post" action="">
-									        <table>
+									        <table table table-bordered table-striped>
 									          <tr>
 									            <td><h3>Partido</h3></td>
 									            <td>
