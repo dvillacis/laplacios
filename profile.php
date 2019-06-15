@@ -33,8 +33,6 @@ include('session.php');
 
 						<div class="col-md-9">
 
-							<img src="images/icons/avatar.jpg" class="alignleft img-circle img-thumbnail notopmargin nobottommargin" alt="Avatar" style="max-width: 84px;">
-
 							<div class="heading-block noborder">
 								<h3><?php echo $login_session;?></h3>
 						    <span>Tienes : <i><?php echo $login_saldo;?></i> laplacios.</pan><br/>
