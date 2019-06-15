@@ -6,7 +6,7 @@ include('session.php');
 <meta charset="ISO-8859-1">
 <head>
   <title>BANCO CENTRAL DEL LAPLACIO</title>
-  <link href="style.css" rel="stylesheet" type="text/css">
+
   <!-- Stylesheets
 	============================================= -->
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css" />
@@ -50,16 +50,19 @@ include('session.php');
 									<div class="tabs tabs-alt clearfix" id="tabs-profile">
 
 										<ul class="tab-nav clearfix">
-											<li><a href="#tab-feeds"><i class="icon-rss2"></i> Enviar Apuesta</a></li>
-											<li><a href="#tab-posts"><i class="icon-pencil2"></i> Mis Apuestas </a></li>
-											<li><a href="#tab-replies"><i class="icon-reply"></i> Tabla de Posiciones</a></li>
+											<li><a href="#tab-enviar-apuesta"><i class="icon-rss2"></i> Enviar Apuesta</a></li>
+											<li><a href="#tab-mis-apuestas"><i class="icon-pencil2"></i> Mis Apuestas </a></li>
+											<li><a href="#tab-posiciones"><i class="icon-reply"></i> Tabla de Posiciones</a></li>
 										</ul>
 
 										<div class="tab-container">
 
-											<div class="tab-content clearfix" id="tab-feeds">
+											<div class="tab-content clearfix" id="tab-enviar-apuesta">
 
-												<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium harum ea quo! Nulla fugiat earum, sed corporis amet iste non, id facilis dolorum, suscipit, deleniti ea. Nobis, temporibus magnam doloribus. Reprehenderit necessitatibus esse dolor tempora ea unde, itaque odit. Quos.</p>
+
+
+											</div>
+											<div class="tab-content clearfix" id="tab-mis-apuestas">
 
 												<table class="table table-bordered table-striped">
 												  <thead>
@@ -90,96 +93,6 @@ include('session.php');
 									          ?>
 												  </tbody>
 												</table>
-
-											</div>
-											<div class="tab-content clearfix" id="tab-posts">
-
-												<div class="row topmargin-sm clearfix">
-
-													<div class="col-12 bottommargin-sm">
-														<div class="ipost clearfix">
-															<div class="row clearfix">
-																<div class="col-md-4">
-																	<div class="entry-image">
-																		<a href="images/portfolio/full/17.jpg" data-lightbox="image"><img class="image_fade" src="images/blog/grid/17.jpg" alt="Standard Post with Image"></a>
-																	</div>
-																</div>
-																<div class="col-md-8">
-																	<div class="entry-title">
-																		<h3><a href="blog-single.html">This is a Standard post with a Preview Image</a></h3>
-																	</div>
-																	<ul class="entry-meta clearfix">
-																		<li><i class="icon-calendar3"></i> 10th Feb 2014</li>
-																		<li><a href="blog-single.html#comments"><i class="icon-comments"></i> 13</a></li>
-																		<li><a href="#"><i class="icon-camera-retro"></i></a></li>
-																	</ul>
-																	<div class="entry-content">
-																		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in.</p>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-
-													<div class="col-12 bottommargin-sm">
-														<div class="ipost clearfix">
-															<div class="row clearfix">
-																<div class="col-md-4">
-																	<div class="entry-image">
-																		<iframe src="http://player.vimeo.com/video/87701971" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-																	</div>
-																</div>
-																<div class="col-md-8">
-																	<div class="entry-title">
-																		<h3><a href="blog-single.html">This is a Standard post with a Embed Video</a></h3>
-																	</div>
-																	<ul class="entry-meta clearfix">
-																		<li><i class="icon-calendar3"></i> 10th Feb 2014</li>
-																		<li><a href="blog-single.html#comments"><i class="icon-comments"></i> 13</a></li>
-																		<li><a href="#"><i class="icon-camera-retro"></i></a></li>
-																	</ul>
-																	<div class="entry-content">
-																		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in.</p>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-
-													<div class="col-12 bottommargin-sm">
-														<div class="ipost clearfix">
-															<div class="row clearfix">
-																<div class="col-md-4">
-																	<div class="entry-image">
-																		<div class="fslider" data-arrows="false">
-																			<div class="flexslider">
-																				<div class="slider-wrap">
-																					<div class="slide"><img class="image_fade" src="images/blog/grid/10.jpg" alt="Standard Post with Gallery"></div>
-																					<div class="slide"><img class="image_fade" src="images/blog/grid/20.jpg" alt="Standard Post with Gallery"></div>
-																					<div class="slide"><img class="image_fade" src="images/blog/grid/21.jpg" alt="Standard Post with Gallery"></div>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-																<div class="col-md-8">
-																	<div class="entry-title">
-																		<h3><a href="blog-single.html">This is a Standard post with a Slider Gallery</a></h3>
-																	</div>
-																	<ul class="entry-meta clearfix">
-																		<li><i class="icon-calendar3"></i> 10th Feb 2014</li>
-																		<li><a href="blog-single.html#comments"><i class="icon-comments"></i> 13</a></li>
-																		<li><a href="#"><i class="icon-camera-retro"></i></a></li>
-																	</ul>
-																	<div class="entry-content">
-																		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in.</p>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-
-												</div>
 
 											</div>
 											<div class="tab-content clearfix" id="tab-replies">
