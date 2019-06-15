@@ -90,9 +90,9 @@ include('session.php');
 									            <td>Equipo 2</td>
 									            <td><input id="apuesta_equipo_2" min="0" step="1" type="number" name="apuesta_equipo_2" /></td>
 									          </tr>
-									          <tr>
-									            <td><h3>Penales: <input type="checkbox" name="checkbox_penales" id="checkbox_penales" disabled/></h3></td>
-									          </tr>
+									          <!-- <tr>
+									            <td><h3>Penales: <input type="checkbox" name="checkbox_penales" id="checkbox_penales"/></h3></td>
+									          </tr> -->
 									          <tr>
 									            <td><h3>Apuesta</h3></td>
 									            <td><input id="apuesta_valor" min="0" step="1" type="number" name="apuesta_valor" /> laplacios</td>
