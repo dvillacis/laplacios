@@ -6,7 +6,8 @@ function pagar_apuesta($id_participante, $id_apuesta, $valor_pago_apuesta, $sald
   $current_date = date('Y-m-d');
   $current_time = date('H:i:s');
   $saldo_new = $saldo_participante+$valor_pago_apuesta;
-  mysql_query("UPDATE participantes SET saldo='$saldo_new' WHERE id_participante='$id_participante'"); // Actualizo el saldo del participante
+  $mysql_query_string="UPDATE participantes SET saldo='$saldo_new' WHERE id_participante='$id_participante'";
+  mysql_query($mysql_query_string); // Actualizo el saldo del participante
   $nuevo_saldo_total_banco = $total_laplacios_banco+$valor_pago_apuesta;
   mysql_query("INSERT INTO transacciones (id_participante, id_apuesta, monto, total_participante, fecha, hora) VALUES ('$id_participante','$id_apuesta','$valor_pago_apuesta','$saldo_new','$current_date','$current_time')");
   mysql_query("UPDATE banco_central_laplacio SET total_laplacios='$nuevo_saldo_total_banco'");
@@ -136,6 +137,7 @@ if (isset($_POST['submit2'])){
           <td><input type="submit" name="submit2" id="submit" value="Calcular" /></td>
         </tr>
       </table>
+      <span><?php echo $mysql_query_string; ?></span>
       <span><?php echo $processing_error; ?></span>
     </form>
   </div>
