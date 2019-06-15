@@ -36,8 +36,11 @@ include('session.php');
 							<img src="images/icons/avatar.jpg" class="alignleft img-circle img-thumbnail notopmargin nobottommargin" alt="Avatar" style="max-width: 84px;">
 
 							<div class="heading-block noborder">
-								<h3>SemiColonWeb</h3>
-								<span>Your Profile Bio</span>
+								<h3><?php echo $login_session;?></h3>
+						    <span>Tienes : <i><?php echo $login_saldo;?></i> laplacios.</pan><br/>
+						    <span>Cotizacion 1 USD : <i><?php echo $total_banco_prev_row[4];?></i> laplacios.</span><br/>
+						    <span><i><?php echo $current_date.' '.$current_time; ?></i>
+					      <span id="logout"><a href="logout.php">Log Out</a></span>
 							</div>
 
 							<div class="clear"></div>
@@ -76,36 +79,18 @@ include('session.php');
 													</tr>
 												  </thead>
 												  <tbody>
-													<tr>
-													  <td>
-														<code>5/23/2016</code>
-													  </td>
-													  <td>Payment for VPS2 completed</td>
-													</tr>
-													<tr>
-													  <td>
-														<code>5/23/2016</code>
-													  </td>
-													  <td>Logged in to the Account at 16:33:01</td>
-													</tr>
-													<tr>
-													  <td>
-														<code>5/22/2016</code>
-													  </td>
-													  <td>Logged in to the Account at 09:41:58</td>
-													</tr>
-													<tr>
-													  <td>
-														<code>5/21/2016</code>
-													  </td>
-													  <td>Logged in to the Account at 17:16:32</td>
-													</tr>
-													<tr>
-													  <td>
-														<code>5/18/2016</code>
-													  </td>
-													  <td>Logged in to the Account at 22:53:41</td>
-													</tr>
+														<?php
+									          while($bet = mysql_fetch_array($bets_query)){
+									            $g_query = mysql_query("select * from partidos where id_partido='$bet[2]'");
+									            $g_row = mysql_fetch_array($g_query);
+									            $match = $g_row[1].'-'.$g_row[2].' '.$g_row[3].' '.$g_row[4];
+									            $pron = $bet[3].'-'.$bet[4];
+									            $pronP = $bet[5];
+									            $resultado = $g_row[5].'-'.$g_row[6];
+									            $resultadoP = $g_row[7];
+									            echo '<tr><td>'.$bet[7].'</td>'.'<td>'.$bet[8].'</td>'.'<td>'.$match.'</td>'.'<td>'.$pron.'</td><td>'.$pronP.'</td><td>'.$resultado.'</td><td>'.$resultadoP.'</td><td>'.$bet[6].'</td><td>'.$bet[9].'</td></tr>';
+									          }
+									          ?>
 												  </tbody>
 												</table>
 
