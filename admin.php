@@ -16,17 +16,17 @@ function pagar_apuesta($id_participante, $id_apuesta, $valor_pago_apuesta, $sald
 function calcular_ganancia_tiempo_reglamentario($resultado_equipo_1,$resultado_equipo_2,$apuesta_equipo_1,$apuesta_equipo_2){
   $factor = 0;
   if ($resultado_equipo_1 == $apuesta_equipo_1 && $resultado_equipo_2==$apuesta_equipo_2){ //Acerto al marcador
-    $factor = 5;
+    $factor = 10;
   } else {
     $res_diff = $resultado_equipo_1-$resultado_equipo_2;
     $ap_diff = $apuesta_equipo_1-$apuesta_equipo_2;
     if ($res_diff == $ap_diff){ // Acerto a la diferencia
-      $factor = 3;
+      $factor = 6;
     } else {
       $res_sign = $res_diff < 0 ? -1 : ( $res_diff > 0 ? 1 : 0 );
       $ap_sign = $ap_diff < 0 ? -1 : ( $ap_diff > 0 ? 1 : 0 );
       if ($res_sign == $ap_sign){ // Acerto al ganador
-        $factor = 2;
+        $factor = 4;
       }
     }
   }

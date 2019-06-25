@@ -49,8 +49,8 @@ if (isset($_POST['submit'])){
   $total_banco_prev_query = mysql_query("SELECT * FROM banco_central_laplacio WHERE 1");
   $total_banco_prev_row = mysql_fetch_array($total_banco_prev_query);
 
-  if (empty($id_partido) || $apuesta_equipo_1<0 || $apuesta_equipo_2<0 || empty($apuesta_valor)){
-    $bet_error = "ERROR: Algunos campos estan vacios";
+  if (empty($id_partido) || $apuesta_equipo_1<0 || $apuesta_equipo_2<0 || empty($apuesta_valor) || $apuesta_equipo_1==$apuesta_equipo_2){
+    $bet_error = "ERROR: Algunos campos estan vacios o aposto al empate";
   } else {
     if ($valid_query_row > 0) {
       $bet_error = "ERROR: Ya aposto para este partido ".$diff_fecha;
@@ -69,7 +69,7 @@ if (isset($_POST['submit'])){
         $login_session =$row['nombre'];
         $login_id = $row['id_participante'];
         $login_saldo = $row['saldo'];
-        header("location: profile.php");
+        //header("location: profile.php");
         $bet_error = "Apuesta guardada correctamente";
       } else {
         $bet_error = "No tiene suficientes laplacios";

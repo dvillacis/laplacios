@@ -4,6 +4,7 @@ include('session.php');
 <!DOCTYPE html>
 <html>
 <meta charset="ISO-8859-1">
+
 <head>
 	<title>BANCO CENTRAL DEL LAPLACIO</title>
 
@@ -20,6 +21,7 @@ include('session.php');
 	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
+
 <body class="stretched">
 	<!-- Document Wrapper
 	============================================= -->
@@ -33,74 +35,82 @@ include('session.php');
 				<div class="container clearfix">
 
 					<div class="heading-block noborder">
-						<h3><?php echo $login_session;?></h3>
-						<span>Tienes : <i><?php echo $login_saldo;?></i> laplacios.</pan><br/>
-							<span>Cotizacion 1 USD : <i><?php echo $total_banco_prev_row[4];?></i> laplacios.</span><br/>
-							<span><i><?php echo $current_date.' '.$current_time; ?></i>
+						<h3><?php echo $login_session; ?></h3>
+						<span>Tienes : <i><?php echo $login_saldo; ?></i> laplacios.</pan><br />
+							<span>Cotizacion 1 USD : <i><?php echo $total_banco_prev_row[4]; ?></i> laplacios.</span><br />
+							<span><i><?php echo $current_date . ' ' . $current_time; ?></i>
 								<span id="logout"><a href="logout.php">Log Out</a></span>
-							</div>
+					</div>
 
-							<div class="clear"></div>
+					<div class="clear"></div>
 
-							<div class="row clearfix">
+					<div class="row clearfix">
 
-								<div class="col-lg-12">
+						<div class="col-lg-12">
 
-									<div class="tabs tabs-alt clearfix" id="tabs-profile">
+							<div class="tabs tabs-alt clearfix" id="tabs-profile">
 
-										<ul class="tab-nav clearfix">
-											<li><a href="#tab-enviar-apuesta"><i class="icon-pencil"></i> Enviar Apuesta</a></li>
-											<li><a href="#tab-mis-apuestas"><i class="icon-coins"></i> Mis Apuestas </a></li>
-											<li><a href="#tab-posiciones"><i class="icon-table"></i> Tabla de Posiciones</a></li>
-										</ul>
+								<ul class="tab-nav clearfix">
+									<li><a href="#tab-enviar-apuesta"><i class="icon-pencil"></i> Enviar Apuesta</a></li>
+									<li><a href="#tab-mis-apuestas"><i class="icon-coins"></i> Mis Apuestas </a></li>
+									<li><a href="#tab-posiciones"><i class="icon-table"></i> Tabla de Posiciones</a></li>
+								</ul>
 
-										<div class="tab-container">
+								<div class="tab-container">
 
-											<div class="tab-content clearfix" id="tab-enviar-apuesta">
+									<div class="tab-content clearfix" id="tab-enviar-apuesta">
 
-												<h2>Enviar Apuesta</h2>
-												<form id="form" name="form" method="post" action="">
-													<table table table-bordered table-striped>
-														<tr>
-															<td><h3>Partido</h3></td>
-															<td>
-																<select name="id_partido">
-																	<?php
-																	while($game = mysql_fetch_array($games_query)) {
-																		$partido_name = $game[1] . " - " . $game[2] . " - " . $game[3] . " " . $game[4];
-																		echo '<option value="'.$game[0].'">'.$partido_name.'</option>';
-																	}
-																	echo "</select>";
-																	?>
-																</select>
-															</td>
-														</tr>
-														<tr>
-															<td><h3>Marcador Global</h3></td>
-														</tr>
-														<tr>
-															<td>Equipo 1</td>
-															<td><input id="apuesta_equipo_1" min="0" step="1" type="number" name="apuesta_equipo_1" /></td>
-														</tr>
-														<tr>
-															<td>Equipo 2</td>
-															<td><input id="apuesta_equipo_2" min="0" step="1" type="number" name="apuesta_equipo_2" /></td>
-														</tr>
-														<!-- <tr>
-														<td><h3>Penales: <input type="checkbox" name="checkbox_penales" id="checkbox_penales"/></h3></td>
-													</tr> -->
-													<tr>
-														<td><h3>Apuesta</h3></td>
-														<td><input id="apuesta_valor" min="1" step="1" type="number" name="apuesta_valor" /> laplacios</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="col_full nobottommargin">
-																<button class="button button-3d" id="submit" name="submit" value=" Apostar">Apostar</button>
-															</div>
-														</td>
-													</tr>
-													<!-- <tr>
+										<h2>Enviar Apuesta</h2>
+										<form id="form" name="form" method="post" action="">
+											<table table table-bordered table-striped>
+												<tr>
+													<td>
+														<h3>Partido</h3>
+													</td>
+													<td>
+														<select name="id_partido">
+															<?php
+															while ($game = mysql_fetch_array($games_query)) {
+																$partido_name = $game[1] . " - " . $game[2] . " - " . $game[3] . " " . $game[4];
+																echo '<option value="' . $game[0] . '">' . $partido_name . '</option>';
+															}
+															echo "</select>";
+															?>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<h3>Marcador Global</h3>
+													</td>
+												</tr>
+												<tr>
+													<td>Equipo 1</td>
+													<td><input id="apuesta_equipo_1" min="0" step="1" type="number" name="apuesta_equipo_1" /></td>
+												</tr>
+												<tr>
+													<td>Equipo 2</td>
+													<td><input id="apuesta_equipo_2" min="0" step="1" type="number" name="apuesta_equipo_2" /></td>
+												</tr>
+												<tr>
+													<td>
+														<h3>Penales: <input type="checkbox" name="checkbox_penales" id="checkbox_penales" /></h3>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<h3>Apuesta</h3>
+													</td>
+													<td><input id="apuesta_valor" min="1" step="1" type="number" name="apuesta_valor" /> laplacios</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="col_full nobottommargin">
+															<button class="button button-3d" id="submit" name="submit" value=" Apostar">Apostar</button>
+														</div>
+													</td>
+												</tr>
+												<!-- <tr>
 													<td><input type="submit" name="submit" id="submit" value="Apostar" /></td>
 												</tr> -->
 											</table>
@@ -129,15 +139,15 @@ include('session.php');
 											</thead>
 											<tbody>
 												<?php
-												while($bet = mysql_fetch_array($bets_query)){
+												while ($bet = mysql_fetch_array($bets_query)) {
 													$g_query = mysql_query("select * from partidos where id_partido='$bet[2]'");
 													$g_row = mysql_fetch_array($g_query);
-													$match = $g_row[1].'-'.$g_row[2].' '.$g_row[3].' '.$g_row[4];
-													$pron = $bet[3].'-'.$bet[4];
+													$match = $g_row[1] . '-' . $g_row[2] . ' ' . $g_row[3] . ' ' . $g_row[4];
+													$pron = $bet[3] . '-' . $bet[4];
 													$pronP = $bet[5];
-													$resultado = $g_row[5].'-'.$g_row[6];
+													$resultado = $g_row[5] . '-' . $g_row[6];
 													$resultadoP = $g_row[7];
-													echo '<tr><td>'.$bet[9].'</td>'.'<td>'.$bet[10].'</td>'.'<td>'.$match.'</td>'.'<td>'.$pron.'</td><td>'.$pronP.'</td><td>'.$resultado.'</td><td>'.$resultadoP.'</td><td>'.$bet[8].'</td><td>'.$bet[11].'</td></tr>';
+													echo '<tr><td>' . $bet[9] . '</td>' . '<td>' . $bet[10] . '</td>' . '<td>' . $match . '</td>' . '<td>' . $pron . '</td><td>' . $pronP . '</td><td>' . $resultado . '</td><td>' . $resultadoP . '</td><td>' . $bet[8] . '</td><td>' . $bet[11] . '</td></tr>';
 												}
 												?>
 											</tbody>
@@ -157,10 +167,10 @@ include('session.php');
 											</thead>
 											<tbody>
 												<?php
-												$indice=1;
-												while ($participant = mysql_fetch_array($leader_query)){
-													echo '<tr><td>'.$indice.'</td><td>'.$participant[0].'</td><td>'.$participant[1].'</td></tr>';
-													$indice = $indice+1;
+												$indice = 1;
+												while ($participant = mysql_fetch_array($leader_query)) {
+													echo '<tr><td>' . $indice . '</td><td>' . $participant[0] . '</td><td>' . $participant[1] . '</td></tr>';
+													$indice = $indice + 1;
 												}
 												?>
 											</tbody>
@@ -198,9 +208,10 @@ include('session.php');
 	<script src="js/functions.js"></script>
 
 	<script>
-	jQuery( "#tabs-profile" ).on( "tabsactivate", function( event, ui ) {
-		jQuery( '.flexslider .slide' ).resize();
-	});
+		jQuery("#tabs-profile").on("tabsactivate", function(event, ui) {
+			jQuery('.flexslider .slide').resize();
+		});
 	</script>
 </body>
+
 </html>
