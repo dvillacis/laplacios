@@ -69,7 +69,7 @@ if (isset($_POST['submit'])){
         $login_session =$row['nombre'];
         $login_id = $row['id_participante'];
         $login_saldo = $row['saldo'];
-        //header("location: profile.php");
+        header("location: profile.php");
         $bet_error = "Apuesta guardada correctamente";
       } else {
         $bet_error = "No tiene suficientes laplacios";
